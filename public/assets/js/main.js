@@ -23,11 +23,11 @@
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
-    if (all) {
-      select(el, all).forEach(e => e.addEventListener(type, listener))
-    } else {
-      select(el, all).addEventListener(type, listener)
-    }
+    // if (all) {
+    //   select(el, all).forEach(e => e.addEventListener(type, listener))
+    // } else {
+    //   select(el, all).addEventListener(type, listener)
+    // }
   }
 
   /**
@@ -158,38 +158,40 @@
   /**
    * Clients Slider
    */
-  new Swiper('.clients-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 40
+  try{
+    new Swiper('.clients-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 60
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
       },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 80
-      },
-      992: {
-        slidesPerView: 6,
-        spaceBetween: 120
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 40
+        },
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 60
+        },
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 80
+        },
+        992: {
+          slidesPerView: 6,
+          spaceBetween: 120
+        }
       }
-    }
-  });
+    });
+ 
 
   /**
    * Porfolio isotope and filter
@@ -285,5 +287,9 @@
   window.addEventListener('load', () => {
     aos_init();
   });
+
+}catch{
+    
+}
 
 })();
