@@ -45,6 +45,9 @@ function ReverseGrade(x0, x1) {
   "use strict";
   Shape.call(this, x0, x1);
 }
+
+// t1=15 t2=10 ex=40 t=65
+
 ReverseGrade.prototype = {
   evaluate: function (val) {
     "use strict";
@@ -80,18 +83,23 @@ export function grade(val, x0, x1) {
   return new Grade(x0, x1).evaluate(val);
 }
 
+export const hashedGrades = {
+  "0.1": "very poor",
+  "0.2": "poor",
+  "0.3": "averagely poor",
+  "0.4": "fair",
+  "0.5": "Averagely good",
+  "0.6": "Good",
+  "0.7": "Very Good",
+  "0.8": "Wonderfully good",
+  "0.9": "Excellently good",
+  "1.0": "Super Exellently good",
+};
+
 export function getFuzzyRemark(fuzzyNumber: number) {
-  const computedRemarks = {
-    "0.1": "very poor",
-    "0.2": "poor",
-    "0.3": "averagely poor",
-    "0.4": "fair",
-    "0.5": "Averagely good",
-    "0.6": "Good",
-    "0.7": "Very Good",
-    "0.8": "Wonderfully good",
-    "0.9": "Excellently good",
-    "1.0": "Super Exellently good",
-  };
+  const computedRemarks = hashedGrades;
   return computedRemarks[fuzzyNumber.toFixed(1).toString()];
 }
+
+// t1=15 t2=10 ex=40 t=65
+// grade val=65 , x0 = 0, x1=100

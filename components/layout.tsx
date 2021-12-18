@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Layout(props: any) {
   return (
-    <div>
+    <div style={{ overflowY: "scroll" }}>
       <Head>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="description" />
@@ -38,21 +38,40 @@ export default function Layout(props: any) {
         <link href="assets/css/style.css" rel="stylesheet" />
       </Head>
       <body>
-        <header id="header" className="header fixed-top">
-          <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <Link passHref={true} href="/">
-              <a className="logo d-flex align-items-center">
-                <Image
-                  width={"100%"}
-                  height={"100%"}
-                  src="/assets/img/logo.png"
-                  alt=""
-                />
-                <span>FuzzyLogic</span>
-              </a>
-            </Link>
+        {props.showHeader ? (
+          <header id="header" className="header fixed-top">
+            <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+              <Link passHref={true} href="/">
+                <a className="logo d-flex align-items-center">
+                  <Image
+                    width={"100%"}
+                    height={"100%"}
+                    src="/assets/img/logo.png"
+                    alt=""
+                  />
+                  <span>FuzzyLogic</span>
+                </a>
+              </Link>
+            </div>
+          </header>
+        ) : null}
+        {props.children}
+      </body>
+      <Script src="/assets/vendor/purecounter/purecounter.js"></Script>
+      <Script src="assets/vendor/aos/aos.js"></Script>
+      <Script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></Script>
+      <Script src="assets/vendor/glightbox/js/glightbox.min.js"></Script>
+      <Script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></Script>
+      <Script src="assets/vendor/swiper/swiper-bundle.min.js"></Script>
+      <Script src="assets/vendor/php-email-form/validate.js"></Script>
 
-            {/* <nav id="navbar" className="navbar">
+      <Script src="assets/js/main.js"></Script>
+    </div>
+  );
+}
+
+{
+  /* <nav id="navbar" className="navbar">
               <ul>
                 <li>
                   <a className="nav-link scrollto active" href="#hero">
@@ -137,21 +156,5 @@ export default function Layout(props: any) {
                 </li>
               </ul>
               <i className="bi bi-list mobile-nav-toggle"></i>
-            </nav> */}
-          </div>
-        </header>
-
-        {props.children}
-      </body>
-      <Script src="/assets/vendor/purecounter/purecounter.js"></Script>
-      <Script src="assets/vendor/aos/aos.js"></Script>
-      <Script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></Script>
-      <Script src="assets/vendor/glightbox/js/glightbox.min.js"></Script>
-      <Script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></Script>
-      <Script src="assets/vendor/swiper/swiper-bundle.min.js"></Script>
-      <Script src="assets/vendor/php-email-form/validate.js"></Script>
-
-      <Script src="assets/js/main.js"></Script>
-    </div>
-  );
+            </nav> */
 }
