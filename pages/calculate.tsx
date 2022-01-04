@@ -203,7 +203,7 @@ const Home: NextPage = () => {
                 <option value="">Filter Students by performancess</option>
                 {Object.keys(hashedGrades).map((val, index) => {
                   return (
-                    <option value={val}>
+                    <option key={index} value={val}>
                       {hashedGrades[val]} - {val}
                     </option>
                   );
